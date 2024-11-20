@@ -7,6 +7,8 @@ import com.example.Servidorsura5.REPOSITORIOS.IRepositorioPaciente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServicioMedicamento {
     @Autowired
@@ -20,6 +22,14 @@ public class ServicioMedicamento {
             return iRepositorioMedicamento.save(datosMedicamento);
 
         }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    public List<Medicamento> buscarMedicamento() throws Exception {
+        try {
+            return iRepositorioMedicamento.findAll();
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }

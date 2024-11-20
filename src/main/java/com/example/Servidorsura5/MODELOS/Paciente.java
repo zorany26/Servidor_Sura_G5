@@ -1,8 +1,12 @@
 package com.example.Servidorsura5.MODELOS;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Table(name="pacientes")
 
@@ -22,6 +26,17 @@ public class Paciente {
     private Character grupoIngresos; //solo admite A, B o C, mayuscula
     private Boolean tienePoliza;
     private LocalDate fechaAfiliacion;//no puede ser menor a 2010
+
+    //Creando una relacion con la clase Medico
+    //Me relaciono con 1 medico
+    //@ManyToOne
+    //@JoinColumn(name = "fk_medico", referencedColumnName = "id")
+    //@JsonBackReference
+    //private Medico medico;
+
+    //@OneToMany(mappedBy = "paciente")
+    //@JsonManagedReference
+    //private List<SignoVital> signosVitales;
 
     public Paciente() {
 
